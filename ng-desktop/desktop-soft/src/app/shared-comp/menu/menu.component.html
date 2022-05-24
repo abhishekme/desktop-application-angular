@@ -1,0 +1,11 @@
+<mat-toolbar color="primary" class="app-header">
+    <button mat-button [matMenuTriggerFor]="menu">Application</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="master">--  Master --</button>
+      <button mat-menu-item>Accouts</button>
+    </mat-menu>
+    <mat-menu #master="matMenu">
+      <button mat-menu-item routerLink="/user">User</button>
+      <button mat-menu-item>Item</button>
+    </mat-menu>
+    </mat-toolbar>

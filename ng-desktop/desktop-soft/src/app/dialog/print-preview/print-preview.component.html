@@ -1,0 +1,46 @@
+<!-- <button type="submit" matTooltipPosition="above" matTooltip="Print" class="btn btn-primary " (click)="open(mymodal)"><mat-icon>print</mat-icon></button> -->
+<!-- <button id="openClick" class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">Open My Modal</button> -->
+<button type="submit" matTooltipPosition="above" matTooltip="Print Preview" class="btn btn-primary " (click)="previewClick(mymodal)"><mat-icon>remove_red_eye</mat-icon></button>             
+
+<ng-template #mymodal let-modal>
+
+  <div class="modal-header">    
+    <h4 class="modal-title" id="modal-basic-title">Print Preview</h4>         
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <!-- User Print -->
+    <ng-container *ngIf="printType == 'user'">
+        <div class="row">
+          <div class="col-md-12">
+            <div (click)="downloadAsPDF();">
+              <mat-icon [ngStyle]="{'cursor':'pointer'}">print</mat-icon>
+            </div> 
+          </div>
+        </div>  
+        <div id="pdfTable" #pdfTable>
+            <table class="table">
+              <thead>
+                  <tr>
+                      <th>#</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Mobile</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr class="table-primary" *ngFor="let item of printData;">
+                      <td>1</td>
+                      <td>{{item.first_name}} {{item.last_name}}</td>
+                      <td>{{item.email}}</td>
+                      <td>{{item.mobile}}</td>
+                  </tr>              
+              </tbody>
+            </table>
+        </div>
+    </ng-container>
+    <!-- User Print -->
+  </div>

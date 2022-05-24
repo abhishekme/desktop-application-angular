@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-md-12 panel-sec">                    
+        <mat-card class="example-card">
+          <mat-card-content>
+              <button type="submit" matTooltipPosition="above" matTooltip="Add New" class="btn btn-primary " (click)="addClick()"><mat-icon>add_to_queue</mat-icon></button>
+              <button type="submit" matTooltipPosition="above" matTooltip="Save"  class="btn btn-primary " (click)="saveClick()"><mat-icon>save</mat-icon></button>
+              <button type="submit" matTooltipPosition="above" matTooltip="Edit" class="btn btn-primary " (click)="editClick()"> <mat-icon>mode_edit</mat-icon></button> 
+              <button type="submit" matTooltipPosition="above" matTooltip="Search" class="btn btn-primary " (click)="searchClick()"><mat-icon>zoom_in</mat-icon></button>
+              <button type="submit" matTooltipPosition="above" matTooltip="Trash" class="btn btn-primary " (click)="deleteClick()"><mat-icon>delete_sweep</mat-icon></button>
+              <!-- <button type="submit" matTooltipPosition="above" matTooltip="Print" class="btn btn-primary " (click)="printClick()"><mat-icon>print</mat-icon></button> -->
+              <print-preview (onPreview)="printPreview($event)" [printData] = "userData" [printType]="type"></print-preview>
+          </mat-card-content>
+          <mat-card-actions>
+            &nbsp;
+          </mat-card-actions> 
+        </mat-card>
+    </div>
+  </div>

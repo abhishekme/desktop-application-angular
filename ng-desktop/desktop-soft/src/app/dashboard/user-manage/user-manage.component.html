@@ -1,0 +1,119 @@
+<div class="content" >
+  <ngx-spinner></ngx-spinner>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Entry >></h4>
+            </div>
+            <!--  -->
+            
+            
+            <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">Open My Modal</button>
+             
+              <ng-template #mymodal let-modal>
+
+  <div class="modal-header">
+
+    <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>
+
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+
+      <span aria-hidden="true">×</span>
+
+    </button>
+
+  </div>
+
+  <div class="modal-body">
+
+    This is example from ItSolutionStuff.com
+
+  </div>
+
+  <div class="modal-footer">
+
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+
+  </div> 
+
+</ng-template>-->
+            
+            <!--  -->
+            <div class="card-body">
+              <ng-container *ngIf="srchFlag">
+                <div class="row">
+                  
+                  <div class="col-md-3">                    
+                    <mat-form-field>
+                      <input matInput placeholer="Search" [(ngModel)]="srchInput" (input)="filterOptions($event)" placeholder="Enter Mobile Number"/>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-9">
+                    <!-- {{options | json}} -->
+                    <mat-select [(ngModel)]="selUser" (selectionChange)="selectUser($event)"> 
+                      <mat-option value="">---SELECT---</mat-option>
+                      <mat-option *ngFor="let option of options" [value]="option.id">
+                        {{option.first_name}} {{option.last_name}}
+                      </mat-option>                    
+                    </mat-select>                    
+                  </div>
+                </div>
+
+              </ng-container>
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-field">
+                      <div class="form-field__control">
+                        <input  placeholder=" " oninput="this.value = this.value.replace(/[^a-zA-Z]/s, '')" maxlength="20" id="first_name" (ngModelOptions)="{'standalone': true}" name="first_name" [(ngModel)] = "userModel.first_name" type="text" class="form-field__input" />
+                        <label for="first_name" class="form-field__label">First Name</label>
+                        <div class="form-field__bar"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                  <div class="form-field">
+                    <div class="form-field__control">
+                      <input id="last_name" name="last_name" oninput="this.value = this.value.replace(/[^a-zA-Z]/s, '')"  [(ngModel)] = "userModel.last_name" maxlength="15" type="text" class="form-field__input" value="" placeholder=" " />
+                      <label for="last_name" class="form-field__label">Last Name</label>
+                      <div class="form-field__bar"></div>
+                    </div>
+                  </div>
+                </div>
+                  <!-- <div class="col-md-3">
+                    <div class="form-field__control">
+                      <input id="username" name="username" oninput="this.value = this.value.replace(/[^a-zA-Z_.0-9]/g, '')" [(ngModel)] = "userModel.username" maxlength="20" type="text" class="form-field__input" value="" placeholder=" " />
+                      <label for="username" class="form-field__label">Username</label>
+                      <div class="form-field__bar"></div>
+                    </div>
+                  </div>  -->
+                  <div class="col-md-3">
+                    <div class="form-field__control">
+                      <input id="email" name="email" [(ngModel)] = "userModel.email" type="text" class="form-field__input" value="" placeholder=" " />
+                      <label for="email" class="form-field__label">Email</label>
+                      <div class="form-field__bar"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-field">
+                      <div class="form-field__control">
+                        <input  placeholder=" " id="mobile_number" oninput="this.value = this.value.replace(/[^0-9.]/g, '')" maxlength="10" name="mobile" 
+                        [(ngModel)] = "userModel.mobile" type="text" class="form-field__input" />
+                        <label for="mobile_number" class="form-field__label">Mobile Number</label>
+                        <div class="form-field__bar"></div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                <app-panel-action [userData]="userData" [type]="typeReq" (onSearch) = "searchUser()" (onDelete)="deleteUser()" (onSave)="saveUser()" (onAdd)="newUser()"  (onEdit)="updateUser()"></app-panel-action>  
+                <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+<hr>
