@@ -50,7 +50,6 @@ export class Constants{
                 delete getDataModel.createdAt; delete getDataModel.updatedAt;
             }
             if(getDataMode.METHOD == 'PUT'){
-                //delete getDataModel.id;
                 delete getDataModel.createdAt; delete getDataModel.updatedAt;
                 delete getDataModel.password;
             }

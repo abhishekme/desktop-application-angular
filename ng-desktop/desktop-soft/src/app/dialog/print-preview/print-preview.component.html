@@ -15,9 +15,12 @@
     <!-- User Print -->
     <ng-container *ngIf="printType == 'user'">
         <div class="row">
-          <div class="col-md-12">
-            <div (click)="downloadAsPDF();">
-              <mat-icon [ngStyle]="{'cursor':'pointer'}">print</mat-icon>
+          <div class="col-md-12 print-mode">
+            <div (click)="printAsPDF();">
+              <mat-icon [ngStyle]="{'cursor':'pointer'}" [matTooltip]="printLabel">print</mat-icon>
+            </div>
+            <div (click)="openAsPDF();">
+              <mat-icon [ngStyle]="{'cursor':'pointer'}" [matTooltip]="printViewLabel">remove_red_eye</mat-icon>
             </div> 
           </div>
         </div>  

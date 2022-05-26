@@ -22,17 +22,27 @@ export class PrintPreviewComponent implements OnInit {
 
   @ViewChild('pdfTable')
   pdfTable!: ElementRef;
+  printLabel: string = "Print Direct";
+  printViewLabel: string = "View Print";
   constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
   }
 
-  public downloadAsPDF() {
+  public printAsPDF() {
     let pdfTable: any = document.getElementById('pdfTable')?.innerHTML;
     var htmlContent = htmlToPdfmake(pdfTable);
     console.log(pdfTable, " :: ", htmlContent)
     const documentDefinition = { content: htmlContent };
-    pdfMake.createPdf(documentDefinition).download();     
+    //pdfMake.createPdf(documentDefinition).download(); 
+    pdfMake.createPdf(documentDefinition).print();     
+  }
+  public openAsPDF() {
+    let pdfTable: any = document.getElementById('pdfTable')?.innerHTML;
+    var htmlContent = htmlToPdfmake(pdfTable);
+    console.log(pdfTable, " :: ", htmlContent)
+    const documentDefinition = { content: htmlContent };
+    pdfMake.createPdf(documentDefinition).open(); 
   }
 
   previewClick(e: any){

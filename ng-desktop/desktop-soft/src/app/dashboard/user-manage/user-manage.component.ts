@@ -76,7 +76,8 @@ export class UserManageComponent {
       this.userData   = [rec.data];
       this.userModel  = rec.data;
       this.totalUser  = rec.totalCount;
-      this.options = new User();
+      // this.options = new User();
+      this.options = this.userModel;
       console.log("@User: ", this.userData, " :: ", this.userModel );
     },
     error =>{
@@ -193,7 +194,7 @@ export class UserManageComponent {
               return x.Id;
             }).indexOf(deletedId);
             this.options.splice(index, 1);
-            this.userModel = [];
+            //this.userModel = [];
           }
       }
       this._apiServ.restCall('DELETE', deleteURL)?.subscribe(
