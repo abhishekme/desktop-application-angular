@@ -17,6 +17,8 @@ import { PanelActionComponent } from './utilities/panel-action/panel-action.comp
 import { LoadingComponent } from './utilities/loader/loading.component';
 import {PrintPreviewComponent} from './dialog/print-preview/print-preview.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { TestMasterComponent } from './dashboard/test-section/test-master/test-master.component';
+import { TestCategoryComponent } from './dashboard/test-section/test-category/test-category.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     PanelActionComponent,
     LoadingComponent,
     PrintPreviewComponent,
+    TestMasterComponent,
+    TestCategoryComponent,
   ],
   imports: [
     BrowserModule,

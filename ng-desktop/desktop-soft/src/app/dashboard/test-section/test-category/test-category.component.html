@@ -1,0 +1,71 @@
+<div class="content" >
+    <ngx-spinner></ngx-spinner>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">Entry Test Category >></h4>
+              </div>
+              <div class="card-body">
+                <ng-container *ngIf="srchFlag">
+                  <div class="row">                  
+                    <div class="col-md-3">                    
+                      <mat-form-field>
+                        <input matInput placeholer="Search" [(ngModel)]="srchInput" (input)="filterOptions($event)" placeholder="Enter Short Name"/>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-9">
+                      <!-- {{options | json}} -->
+                      <mat-select [(ngModel)]="selCategory" (selectionChange)="selectCategory($event)"> 
+                        <mat-option value="">---SELECT---</mat-option>
+                        <mat-option *ngFor="let option of options" [value]="option.test_cat_short_name">
+                          {{option.test_cat_name}} >> {{option.test_cat_short_name}}
+                        </mat-option>
+                      </mat-select>
+                    </div>
+                  </div>
+                </ng-container>
+                
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="form-field">
+                        <div class="form-field__control">
+                          <input  placeholder=" " oninput="this.value = this.value.replace(/\s+$/, '')" maxlength="20" id="test_cat_name" (ngModelOptions)="{'standalone': true}" name="test_cat_name" [(ngModel)] = "testCategoryModel.test_cat_name" type="text" class="form-field__input" />
+                          <label for="test_cat_name" class="form-field__label">Category Name</label>
+                          <div class="form-field__bar"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                    <div class="form-field">
+                      <div class="form-field__control">
+                        <input id="test_cat_short_name" name="test_cat_short_name" oninput="this.value = this.value.replace(/[^a-zA-Z]/s, '')"  [(ngModel)] = "testCategoryModel.test_cat_short_name" maxlength="15" type="text" class="form-field__input" value="" placeholder=" " />
+                        <label for="test_cat_short_name" class="form-field__label">Category Short Name</label>
+                        <div class="form-field__bar"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="form-field__control">
+                      <mat-select class="form-field__input" [(ngModel)]="testCategoryModel.test_cat_status" (selectionChange)="selectStatus($event)"> 
+                        <mat-option value="">---STATUS---</mat-option>
+                        <mat-option *ngFor="let option of selStatus" [value]="option.value">
+                                    {{option.name}}
+                        </mat-option>
+                      </mat-select>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="top-margin-panel-12"></div>
+                  <app-panel-action [getData]="categoryData" [type]="typeReq" (onSearch) = "searchCategory()" (onDelete)="deleteCategory()" (onSave)="saveCategory()" (onAdd)="newCategory()"  (onEdit)="updateCategory()"></app-panel-action>  
+                  <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  

@@ -8,10 +8,12 @@ export class Constants{
     public API_END_URL: string     =   'http://localhost:8085/';
     public API_END: any = 
         {
-            loginAPI:           this.API_END_URL +  'login',
-            userRestAPI:        this.API_END_URL +  'user',
-            userByID:           this.API_END_URL +  'userById',
-            userByMOB:          this.API_END_URL +  'userByMob'            
+            loginAPI:                       this.API_END_URL +  'login',
+            userRestAPI:                    this.API_END_URL +  'user',
+            userByID:                       this.API_END_URL +  'userById',
+            userByMOB:                      this.API_END_URL +  'userByMob',            
+            categoryRestAPI:                this.API_END_URL +  'testCategory',
+            categoryByShortName:            this.API_END_URL +  'searchByShortName'            
         }
 
     //Static Constant Declaration

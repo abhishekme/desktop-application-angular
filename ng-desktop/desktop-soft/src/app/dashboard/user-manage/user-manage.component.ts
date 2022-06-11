@@ -176,39 +176,43 @@ export class UserManageComponent {
 
   //Delete User
   deleteUser(){
-    if(confirm("Are you sure to delete selected user?")) {
-      let deletedId: number  = this.userModel.id;
-      let deleteURL: string   = this._constant.API_END.userRestAPI + "/?id=" + this.userModel.id;
-      if(this.totalUser <= 1 && this.userModel.id != ''){
-        this._toaster.warning("At least one record required!", "User Manage",this._constant.toasterOptions);
-        return false;
-      }
-      if(this.srchFlag){
-        this.selUser  = '';
-        this.srchInput = '';
-          if(this.options.length == 1){
-            this.options = null;
-            this.userModel = [];
-          }else{
-            let index = this.options.map((x: any) => {
-              return x.Id;
-            }).indexOf(deletedId);
-            this.options.splice(index, 1);
-            //this.userModel = [];
-          }
-      }
-      this._apiServ.restCall('DELETE', deleteURL)?.subscribe(
-        (data)  => {
-          if(typeof data === 'object' && data.status){      
-            if(!this.srchFlag){
-              this.getUser();
-            }
-            this._toaster.success(data.message, "User Manage",this._constant.toasterOptions)
-          }
-        });
-    }else{
-      return false;
+    if(typeof this.userModel == 'object' && this._utilFunc.isEmptyObjectValue(this.userModel)){
+      this._toaster.error('Select Record to be delete!', "System Error!",this._constant.toasterOptions)
+      return;
     }
+        if(confirm("Are you sure to delete selected user?")) {
+          let deletedId: number  = this.userModel.id;
+          let deleteURL: string   = this._constant.API_END.userRestAPI + "/?id=" + this.userModel.id;
+          if(this.totalUser <= 1 && this.userModel.id != ''){
+            this._toaster.warning("At least one record required!", "User Manage",this._constant.toasterOptions);
+            return false;
+          }
+          if(this.srchFlag){
+            this.selUser  = '';
+            this.srchInput = '';
+              if(this.options.length == 1){
+                this.options = null;
+                this.userModel = [];
+              }else{
+                let index = this.options.map((x: any) => {
+                  return x.Id;
+                }).indexOf(deletedId);
+                this.options.splice(index, 1);
+                //this.userModel = [];
+              }
+          }
+          this._apiServ.restCall('DELETE', deleteURL)?.subscribe(
+            (data)  => {
+              if(typeof data === 'object' && data.status){      
+                if(!this.srchFlag){
+                  this.getUser();
+                }
+                this._toaster.success(data.message, "User Manage",this._constant.toasterOptions)
+              }
+            });
+        }else{
+          return false;
+        }
   }
 
 }

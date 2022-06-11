@@ -8,7 +8,7 @@
               <button type="submit" matTooltipPosition="above" matTooltip="Search" class="btn btn-primary " (click)="searchClick()"><mat-icon>zoom_in</mat-icon></button>
               <button type="submit" matTooltipPosition="above" matTooltip="Trash" class="btn btn-primary " (click)="deleteClick()"><mat-icon>delete_sweep</mat-icon></button>
               <!-- <button type="submit" matTooltipPosition="above" matTooltip="Print" class="btn btn-primary " (click)="printClick()"><mat-icon>print</mat-icon></button> -->
-              <print-preview (onPreview)="printPreview($event)" [printData] = "userData" [printType]="type"></print-preview>
+              <print-preview (onPreview)="printPreview($event)" [printData] = "getData" [printType]="type"></print-preview>
           </mat-card-content>
           <mat-card-actions>
             &nbsp;

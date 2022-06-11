@@ -34,7 +34,28 @@ export class UtilFunctionsService{
             break;
 
         }
+        
+    }
 
+    //Check object property empty
+    public isEmptyObject(obj: any){
+
+        for(let key in obj){
+            if(obj.hasOwnProperty(key))
+                return false;
+        }
+        return true;
+    }
+
+    //Check object property value empty
+    public isEmptyObjectValue(obj: any){
+
+        for(let key in obj){
+            console.log(key,  " :: ",  obj.hasOwnProperty(key) , " == ", obj[key])
+            if(obj.hasOwnProperty(key) && obj[key] !== '')
+                return false;
+        }
+        return true;
     }
 }
 

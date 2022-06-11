@@ -10,15 +10,15 @@ export class PanelActionComponent implements OnInit {
   //Declaration Input
 
   //Declaration Output
-  @Output() onSave      = new EventEmitter();
-  @Output() onAdd       = new EventEmitter();
-  @Output() onEdit      = new EventEmitter();
-  @Output() onDelete    = new EventEmitter();
-  @Output() onSearch    = new EventEmitter();
-  @Output() onPrint     = new EventEmitter();
+  @Output() onSave        = new EventEmitter();
+  @Output() onAdd         = new EventEmitter();
+  @Output() onEdit        = new EventEmitter();
+  @Output() onDelete      = new EventEmitter();
+  @Output() onSearch      = new EventEmitter();
+  @Output() onPrint       = new EventEmitter();
 
-  @Input() userData : any = [];
-  @Input() type: string = '';
+  @Input() getData : any  = [];
+  @Input() type: string   = '';
 
   constructor() { }
 
@@ -26,7 +26,7 @@ export class PanelActionComponent implements OnInit {
   }
 
   printPreview(e: any){
-    console.log("@data: ", this.userData);
+    console.log("@data: ", this.getData);
   }
 
   //Save Handler

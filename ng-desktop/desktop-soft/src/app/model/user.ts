@@ -2,6 +2,6 @@ export class User {
     first_name: string='';
     last_name: string='';
     email: string = '';
-    mobile: number = 0;
+    mobile: any = '';
     user_avatar: string = '';
  }
