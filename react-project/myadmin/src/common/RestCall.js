@@ -19,6 +19,5 @@ export const userList = (params, token) =>{
     let url = environment.API_END + environment.METHOD_END.USER;
     const urlP = new URL(url);
     urlP.search = new URLSearchParams(params);
-    console.log("@@@URl Req: ", urlP)
     return axios.get(urlP.href , { headers: {"authorization" : `Bearer ${token}`} })
 }
